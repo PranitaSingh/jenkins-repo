@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                date
+                script{
+                    def output = sh(script:'date', returnStdout: true)
+                    echo "OUTPUT:${output}" 
+                    }
             }
         }
     } 
