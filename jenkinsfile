@@ -3,12 +3,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Docker build') {
             steps {
-                script{
-                    def output = sh(script:'date', returnStdout: true)
-                    echo "OUTPUT:${output}" 
-                    }
+                sh 'docker build -t pranisin_ubuntu:latest .'
             }
         }
     } 
